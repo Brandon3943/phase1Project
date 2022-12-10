@@ -4,12 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather App</title>
     <script src="data.js"></script>
     <script type="module" src="index.js" defer></script>
     <link href="style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada&display=swap" rel="stylesheet">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada&display=swap');
+    </style>
+
 </head>
 <body>
-    
+    <div>
+        <img id="backgroundIMG" alt="IMG failed to load" src="https://as1.ftcdn.net/v2/jpg/02/11/52/42/1000_F_211524227_Ett8aboQvVnROAFtqu3S1pW99Y3Th9vm.jpg" width="100%" height="100%"/>
+    </div>
+    <form id="enterInfo">
+       <label for="city" >Please enter City Name:</label>
+       <input type="text" id="city" placeholder="City Name Here"/>
+       </br>
+       <label for="state" >Please enter State Name:</label>
+       <input type="text" id="state" placeholder="State Name Here"/>
+       </br>
+       <button type="submit" id="btn">Send</button>       
+    </form>
+    <input type="reset" value="Clear Form" id="resetbtn">
 </body>
 </html>
