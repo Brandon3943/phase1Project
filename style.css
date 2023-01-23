@@ -17,8 +17,8 @@ img {
 
 ul {
     position: absolute;
-    left: 25%;
-    top: 40%;
+    left: 15%;
+    top: 20%;
     text-align: center;
     list-style-type: none;
     background-color: grey;
@@ -26,15 +26,16 @@ ul {
     overflow: hidden;
     opacity: 80%;
     box-shadow: -15px 15px 30px black;   
-    width: 500px;
+    width: 650px;
+    height: 500px;
     padding-left: 0px;
 }
 
 form {
-    background-color: #258;
-    padding: 10px 30px;
+    background-color: grey;
+    padding: 10px 30px 30px 30px;
     border-radius: 40px;
-    opacity: 90%;
+    opacity: 75%;
     box-shadow: -15px 15px 30px black;
     font-size: 20px;
 }
@@ -48,10 +49,13 @@ form {
 
 #enterInfo {
     position: absolute;
-    top: 40%;
-    left: 25%;
+    top: 10%;
+    left: 15%;
     text-align: center;
     font-size: 30px;
+    width: 600px;
+    height: 50px;
+    display: flex;
 }
 
 #enterInfo:click {
@@ -74,13 +78,14 @@ form {
 
 .weather-list {
    position: relative;
-   left: -170px;
-   animation: move linear 10.2s infinite;
-   animation-delay: 7.5s;
+   left: 70px;
+   top: 100px;
+   /* animation: move linear 10.2s infinite;
+   animation-delay: 7.5s; */
    min-width: 100px;
    bottom: 10px;
    background-color: none;
-   font-size: 20px;
+   font-size: 30px;
    margin: 0;
    height: 50px;
    display: inline; 
@@ -90,13 +95,14 @@ form {
 
 .weather-list1 {
     position: relative;
-    left: -300px;
-    animation: move1 linear 10.2s infinite; 
-    animation-delay: 5s;
+    left: -80px;
+    top: 150px;
+    /* animation: move1 linear 10.2s infinite; 
+    animation-delay: 5s; */
     min-width: 100px;
     bottom: 10px;
     background-color: none;
-    font-size: 20px;
+    font-size: 30px;
     margin: 0;
     height: 50px;
     display:inline; 
@@ -104,13 +110,14 @@ form {
 
  .weather-list2 {
     position: relative;
-    left: -480px;
-    animation: move2 linear 10.1s infinite;
-    animation-delay: 2.5s;
+    left: -305px;
+    top: 200px;
+    /* animation: move2 linear 10.1s infinite;
+    animation-delay: 2.5s; */
     min-width: 100px;
     bottom: 10px;
     background-color: none;
-    font-size: 20px;
+    font-size: 30px;
     margin: 0;
     height: 50px;
     display: inline; 
@@ -118,41 +125,52 @@ form {
 
  .weather-list3 {
     position: relative;
-    left: -90px;
-    animation: move3 linear 10.1s infinite;  
-    animation-delay: 0s;
+    left: 90px;
+    top: 210px;
+    /* animation: move3 linear 10.1s infinite;  
+    animation-delay: 0s; */
     width: 0px;
     bottom: 34px;
     background-color: none;
-    font-size: 20px;
+    font-size: 30px;
     margin: 0;
     height: 50px; 
     text-align: center;
  }
 
-@keyframes move3 {
-    from { left: -90px; }
-    to { left: 540px; }
-}
+ .description p {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    top: 300px;
+    left: 470px;
+    width: 250px;
+    height: 200px;
+    animation: move linear 25s infinite;  
+    animation-delay: 0s;
+ }
 
-@keyframes move2 {
-    from { left: -430px; }
-    to { left: 200px; }
-}
-
-@keyframes move1 {
-    from { left: -300px; }
-    to { left: 350px; }
-}
+ .description div {
+    border: 2px solid black;
+ }
 
 @keyframes move {
-    from { left: -170px; }
-    to { left: 460px; }
+    from { top: 600px; }
+    to { top: -100px; }
 }
 
+
+
 #btn {
-    font-size: 20px;
-    border-radius: 20px;
+    font-size: 20px;    
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 30px;
+    right: 300px;
 }
 
 #city {

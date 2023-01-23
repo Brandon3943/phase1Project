@@ -6,6 +6,11 @@ let listOfWeather = document.createElement('ul');
 let cityInfo = document.createElement('li');
 listOfWeather.append(cityInfo);
 document.body.append(listOfWeather);
+let descrptionContainer = document.createElement('div')
+let descriptionText = document.createElement('span')
+descrptionContainer.className = 'description'
+descrptionContainer.append(descriptionText);
+document.body.append(descrptionContainer);
 let form = document.querySelector('#enterInfo');
 form.addEventListener('submit', function(event) {
 event.preventDefault();
@@ -14,8 +19,6 @@ event.preventDefault();
  getLatLon(city, state);
  event.target.reset();
 });
-
-//first gets latitude and logitude from entered city, then get weather info from latitude and logitude
 function getLatLon(city, state) {
 fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${API_KEY}`)
   .then(responce => responce.json())
@@ -28,7 +31,7 @@ fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${AP
         .then(responce => responce.json())
         .then(data => {
           renderALL(data, city, state);
-          form.style.display = 'none';          
+          console.log(data.alerts[0].description)        
         })
         } else {
           return "Error"
@@ -37,7 +40,6 @@ fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${AP
   )
   .catch(() => alert("Unexpected error, please try search again."))
 }; 
-
 function renderTeampHeader(data) {
   let tempData = document.createElement('li');
   tempData.className = 'weather-list';
@@ -56,6 +58,14 @@ function renderHumidity(data) {
   humidity.innerText = ` ${data.current.humidity}% humidity`;
   listOfWeather.append(humidity);
 }
+
+function renderDescription(data) {
+let description = document.createElement('p')
+description.className = 'description';
+description.innerText = `${data.alerts[0].description}`;
+descriptionText.append(description)
+}
+
 function renderAtomosphere(data) {
   let atomosphere = document.createElement('li');
   atomosphere.className = 'weather-list3';
@@ -82,8 +92,6 @@ function getDateAndTime(timeZone, climate) {
     }
     setBackground(timeZone, climate);
   })}
-
-
 function setBackground(timeZone, climate) {
   return fetch(`http://worldtimeapi.org/api/timezone/${timeZone}`)
   .then(r => r.json())
@@ -98,9 +106,6 @@ function setBackground(timeZone, climate) {
       }
     })
 }  
-
-
-
 function renderALL(data, genCity, genState) {
   cityInfo.textContent = `${genCity.toUpperCase()}, ${genState.toUpperCase()}`;
   cityInfo.id = 'city-name-state-name';
@@ -108,5 +113,6 @@ function renderALL(data, genCity, genState) {
   renderFeelsLike(data);
   renderHumidity(data);
   renderAtomosphere(data);
+  renderDescription(data);
 }
 
